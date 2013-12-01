@@ -22,7 +22,7 @@ SET fish_color_cwd_root:red
 SET fish_color_error:red\x1e\x2d\x2dbold
 SET fish_color_escape:purple\x1e\x2d\x2dbold
 SET fish_color_history_current:cyan
-SET fish_color_host:yellow
+SET fish_color_host:cyan\x1e\x2d\x2dbold
 SET fish_color_match:cyan
 SET fish_color_normal:normal
 SET fish_color_operator:cyan\x1e\x2d\x2dbold
