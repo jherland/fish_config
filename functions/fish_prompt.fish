@@ -13,16 +13,16 @@ function fish_prompt --description 'Write out the prompt'
         function __fish_repaint \
             --on-variable fish_color_user \
             --on-variable fish_color_host \
-            --on-variable fish_color_status \
             --on-variable fish_color_cwd \
             --on-variable fish_color_cwd_root \
+            --on-variable fish_color_status \
             --description "Event handler, repaint when fish_color_* changes"
             if status --is-interactive
                 # Unset dependent variables
                 set -e __fish_prompt_user
                 set -e __fish_prompt_host
-                set -e __fish_prompt_status
                 set -e __fish_prompt_cwd
+                set -e __fish_prompt_status
                 # Initiate repaint
                 commandline -f repaint ^/dev/null
             end
