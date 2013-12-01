@@ -14,6 +14,7 @@ SET __fish_git_prompt_showstashstate:yes
 SET __fish_git_prompt_showupstream:git
 SET __fish_init_1_22_0:\x1d
 SET __fish_init_1_50_0:\x1d
+SET __prompt_initialized_2:\x1d
 SET fish_color_autosuggestion:555\x1eyellow
 SET fish_color_command:green\x1e\x2d\x2dbold
 SET fish_color_comment:black\x1e\x2d\x2dbold
