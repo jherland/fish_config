@@ -73,10 +73,6 @@ function fish_prompt --description 'Write out the prompt'
             "$prompt_cwd" "$prompt_git" "$prompt_status" "$delim"
 end
 
-function fish_right_prompt --description 'Write out the right prompt'
-	date "+%Y-%m-%d %H:%M:%S"
-end
-
 # initialize our new variables
 # in theory this would be in a fish_prompt event, but this file isn't sourced
 # until the fish_prompt function is called anyway.
