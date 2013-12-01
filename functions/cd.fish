@@ -5,29 +5,36 @@ function cd --description 'Change directory'
         return $status
     end
 
-    # Avoid set completions
-    set -l previous $PWD
+    set -l arg $argv[1]
+    if test -z $arg
+        set arg "$HOME"
+    end
 
-    if test $argv[1] = - ^/dev/null
-        if test "$__fish_cd_direction" = next ^/dev/null
-            nextd
-        else
-            prevd
-        end
-        return $status
-    else if test $argv[1] = -- ^/dev/null
+    switch $arg
+    case '--'
+        # cd --: Print current dirstack
         dirs -v
         return $status
+    case '-'
+        # cd -: Go to previous dir
+        set arg $dirstack[1]
+    case '--*'
+        # Nothing, Use $argv[1]
+    case -0
+        # cd -0: Go to $pwd
+        set arg .
+    case '-*'
+        # cd -$n: Go to nth last dir
+        if test $arg -lt 0 -a $arg -ge "-"(count $dirstack)
+            set -l n (math "0 - $arg")
+            set dst $dirstack[$n]
+            if test $status -eq 0
+                set arg $dst
+            end
+        end
     end
 
-    builtin cd $argv[1]
-    set -l cd_status $status
-
-    if test $cd_status = 0 -a "$PWD" != "$previous"
-        set -g dirprev $dirprev $previous
-        set -e dirnext
-        set -g __fish_cd_direction prev
-    end
-
-    return $cd_status
+    # push this dir onto dirstack and cd to $arg
+    pushd $arg
+    return $status
 end
