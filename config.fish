@@ -2,16 +2,6 @@ if not status --is-interactive
 	exit 0
 end
 
-# Fix the following things from .bashrc
-
-# Fix cd --
-# source $HOME/bin/acd_func.sh
-
-# Some aliases
-# alias bd=". bd -s"
-
-# end
-
 # Add ~/bin to $PATH
 set -g fish_user_paths ~/bin
 
