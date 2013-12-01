@@ -1,3 +1,3 @@
 function nano
-	nano -w $argv
+	command nano -w $argv
 end
