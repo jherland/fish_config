@@ -15,6 +15,9 @@ function cd --description 'Change directory'
             prevd
         end
         return $status
+    else if test $argv[1] = -- ^/dev/null
+        dirs -v
+        return $status
     end
 
     builtin cd $argv[1]
