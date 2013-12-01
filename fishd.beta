@@ -39,3 +39,4 @@ SET fish_pager_color_completion:normal
 SET fish_pager_color_description:cyan
 SET fish_pager_color_prefix:white\x1e\x2d\x2dbold
 SET fish_pager_color_progress:cyan
+SET fish_user_paths:/home/jherland/bin
